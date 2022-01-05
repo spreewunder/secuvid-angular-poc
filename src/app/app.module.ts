@@ -1,7 +1,7 @@
 import {APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import * as UI from "@spreewunder/secuvid-ui";
+import UI from "@spreewunder/secuvid-sdk/dist";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
