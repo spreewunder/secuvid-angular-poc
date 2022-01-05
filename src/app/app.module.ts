@@ -10,7 +10,9 @@ export function initializeApplication(): () => Promise<void> {
   return async function initSecuvidUI() {
     await UI.define(
       UI.Video as any,
-      UI.Card as any
+      UI.Card as any,
+      UI.Button as any,
+      UI.Badge as any
     );
     console.warn("elements initialized");
   };
