@@ -16,12 +16,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2021",
+    "target": "es6",
     "module": "es2020",
     "skipLibCheck": true,
     "lib": [
-      "es2021",
-      "es7",
+      "es2020",
       "dom"
     ]
   },
