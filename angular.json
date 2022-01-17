@@ -15,12 +15,11 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/secuvid-angular-poc",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "plugin": "build-plugin.js",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
