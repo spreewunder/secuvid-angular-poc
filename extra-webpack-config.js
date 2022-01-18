@@ -1,10 +1,28 @@
 const webpack = require('webpack');
 const TerserPlugin = require("terser-webpack-plugin");
 
-
-console.log("Using custom partial webpack config");
-
-module.exports = (config, options, targetOptions) => {
-    //config.optimization.minimizer.minimize = true;
-    return config;
+module.exports = config => {
+  const angularDefaultOptimizer = config.optimization?.minimizer?.filter(
+    (plugin) => plugin.constructor.name === 'JavaScriptOptimizerPlugin'
+  )[0];
+  return {
+    ...config,
+    optimization: {
+      ...(config.optimization || {}),
+      minimize: true,
+      minimizer: [
+        ...(config.optimization.minimizer || []).filter(
+          (plugin) => plugin.constructor.name !== 'JavaScriptOptimizerPlugin'
+        ),
+        new TerserPlugin({
+          parallel: true,
+          terserOptions: {
+            sourceMap: angularDefaultOptimizer?.options.sourcemap,
+            keep_classnames: true,
+            keep_fnames: true
+          }
+        })
+      ]
+    }
+  };
 };
